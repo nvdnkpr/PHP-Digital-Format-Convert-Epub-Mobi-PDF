@@ -1,24 +1,10 @@
-<?php
-	if (isset($_GET['function'])) {
-		require_once 'application/controllers/EpubController.php';
-		require_once 'application/controllers/MobiController.php';
-		require_once 'application/controllers/PdfController.php';
-		
-		$function = ucfirst($_GET['function']);
-		$controllerName = "{$function}Controller";
-		$actionName = "create{$function}Action";
-		
-		//use variable variables based on $_GET variable to instantiate class and call method
-		$controller = new $controllerName();
-		$controller->$actionName();
-	}
-?>
 <div class="span12">
 	<div class="page-header">
     	<h1>Digital Format Conversion Tools <small>Convert from DOCX to EPUB, Kindle, PDF in PHP</small></h1>
   	</div>
   	<h2>Introduction</h2>
   	<p>Digital Format Conversion tools enable conversion from Microsoft Word (2007+) DOCX format to EPUB, Kindle and PDF in PHP.</p>
+	<p>The EPub Controller/Model examples are the most complete in this application, including basic content cleansing and setting of options specific to the EPub conversion library.</p>
 	<p>The tools are constructed from a range of Open Source elements, including:</p>
 		<ul>
 			<li>EPub PHP class (http://www.phpclasses.org/package/6115)</li>

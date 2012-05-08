@@ -32,9 +32,12 @@
 		public function createEpub($options) 
 		{
 			$transform = new TransformModel();
-			$html = $transform->getDocumentHTML($options['src']);
+			$html = strip_tags($transform->getDocumentHTML($options['src']), "<p><script><style><span>"); //an example of basic 'content cleansing'
 			$epub = $this->dfcTools['epubConverter'];
-			$epub->addChapter("Body", "Body.html", $html, true);
+			$epub->setTitle($options['options']['Title']); //setting specific options to the EPub library
+			$epub->setIdentifier($options['options']['Identifier'], EPub::IDENTIFIER_URI); 
+			$epub->addChapter("Body", "Body.html", $html);
+			$epub->finalize();
 			$zipData = $epub->sendBook("Example");
 		} 
 		

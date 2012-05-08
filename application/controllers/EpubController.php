@@ -34,6 +34,7 @@
 					'Title' => 'Conversion Demonstration',
 					'Language' => 'en',
 					'Publisher' => 'FUBAR Publications',
+					'Identifier' => '111-999-222'
 				),
 				'src' => 'application/example/manuscript.docx'
 			);

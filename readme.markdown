@@ -3,6 +3,7 @@
 
 ### Introduction
 Digital Format Conversion tools enable conversion from Microsoft Word (2007+) DOCX format to EPUB, Kindle and PDF.
+The EPub Controller/Model examples are the most complete in this application, including basic content cleansing and setting of options specific to the EPub conversion library.
 The tools are constructed from a range of Open Source elements, including:
 * PHP CSS Parser (https://github.com/sabberworm/PHP-CSS-Parser)
 * EPub PHP class (http://www.phpclasses.org/package/6115)

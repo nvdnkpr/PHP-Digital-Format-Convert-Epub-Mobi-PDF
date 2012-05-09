@@ -34,3 +34,6 @@ Documentation is available in /docs
 
 ### Demo
 N.B. The demonstration manuscript is stored in /application/example
+
+### TODO
+Update documentation to reflect changes made on 9 May 2012

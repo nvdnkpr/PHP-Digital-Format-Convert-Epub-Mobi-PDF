@@ -17,11 +17,11 @@
 		 * Constructor
 		 * Instantiate bootstrap, get instance of conversion tools
 		 */
-		public function __construct() 
+		public function __construct(PdfModel $model, array $tools, TransformModel $transform) 
 		{
-			require_once('application/Bootstrap.php');
-			$this->bs = Bootstrap::singleton();
-			$this->dfcTools = $this->bs->getTools();
+			$this->pdfModel = $model;
+			$this->tools = $tools;
+			$this->transform = $transform;
 		}
 	
 		/**
@@ -37,7 +37,6 @@
 				),
 				'src' => 'application/example/manuscript.docx'
 			);
-			$pdf = new PdfModel();
-			$pdf->createPdf($options);
+			$this->pdfModel->createPdf($this->transform, $options);
 		}
 	}

@@ -17,11 +17,9 @@
 		 * Constructor
 		 * Instantiate bootstrap, get instance of conversion tools
 		 */
-		public function __construct() 
+		public function __construct(array $tools) 
 		{
-			require_once('application/Bootstrap.php');
-			$this->bs = Bootstrap::singleton();
-			$this->dfcTools = $this->bs->getTools();
+			$this->dfcTools = $tools;
 		}
 		
 		/**
@@ -29,9 +27,8 @@
 		 * Get instance of TransformModel, get HTML from manuscript, pass to conversion tools and send Pdf to browser
 		 * @param $options array output options and manuscript src
 		 */	
-		public function createPdf($options) 
+		public function createPdf(TransformModel $transform, array $options) 
 		{
-			$transform = new TransformModel();
 			$html = $transform->getDocumentHTML($options['src']);
 			$pdf = $this->dfcTools['pdfConverter'];
 			$pdf->WriteHTML('<?xml encoding="UTF-8">' . $html);

@@ -27,7 +27,7 @@
 <body>
 	<div class="container">
 	<?php
-		//a simple page router to include the 'default' view if the index.php file is requested
+		//a VERY simple page router/despatcher to include the 'default' view if the index.php file is requested
 		if (strtolower($_SERVER['PHP_SELF']) == "/digitalformatconvert/index.php") {
 			include 'application/views/default.php';
 		}

@@ -6,6 +6,7 @@
 		require_once('application/Bootstrap.php');
 		
 		$function = ucfirst($_GET['function']);
+		if (isset($_GET['str'])) $options = array("html" => "<h1>Hello, World</h1><p><strong>Here is some text, wrapped in 'p' and 'strong' HTML tags</strong></p><p><em>Here is some text, wrapped in 'p' and 'em' HTML tags</em></p>");
 		$controllerName = "{$function}Controller";
 		$modelName = "{$function}Model";
 		$actionName = "create{$function}Action";
@@ -17,7 +18,7 @@
 		
 		$model = new $modelName($tools);
 		$controller = new $controllerName($model, $tools, $transform);
-		$controller->$actionName();
+		$controller->$actionName($options);
 		exit();
 	}
 ?>

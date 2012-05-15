@@ -29,8 +29,12 @@
 		 */	
 		public function createEpub(TransformModel $transform, array $options) 
 		{
-			$html = strip_tags($transform->getDocumentHTML($options['src']), "<p><script><style><span>"); //an example of basic 'content cleansing'
 			$epub = $this->dfcTools['epubConverter'];
+			if (!$options['customOptions']['html']) { //if no html has been passed, transform the Word Document
+				$html = strip_tags($transform->getDocumentHTML($options['src']), "<p><script><style><span>"); //an example of basic 'content cleansing'
+			} else {
+				$html = $options['customOptions']['html'];
+			}
 			$epub->setTitle($options['options']['Title']); //setting specific options to the EPub library
 			$epub->setIdentifier($options['options']['Identifier'], EPub::IDENTIFIER_URI); 
 			$epub->addChapter("Body", "Body.html", $html);

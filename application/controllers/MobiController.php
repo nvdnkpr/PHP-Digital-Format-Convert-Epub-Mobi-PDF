@@ -28,7 +28,7 @@
 		 * createMobiAction
 		 * Set options, pass to instance of MobiModel()
 		 */	
-		public function createMobiAction() {
+		public function createMobiAction(array $customOptions = null) {
 			$options = array(
 				'options' => array (
 					'Title' => 'Conversion Demonstration',
@@ -37,6 +37,7 @@
 				),
 				'src' => 'application/example/manuscript.docx'
 			);
+			if ($customOptions) $options['customOptions'] = $customOptions;
 			$this->mobiModel->createMobi($this->transform, $options);
 		}
 	}

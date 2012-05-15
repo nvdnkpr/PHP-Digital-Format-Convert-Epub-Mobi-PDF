@@ -29,8 +29,12 @@
 		 */	
 		public function createMobi(TransformModel $transform, array $options) 
 		{
-			$html = $transform->getDocumentHTML($options['src']);
 			$mobi = $this->dfcTools['mobiConverter'];
+			if (!$options['customOptions']['html']) { //if no html has been passed, transform the Word Document
+				$html = $transform->getDocumentHTML($options['src']);
+			} else {
+				$html = $options['customOptions']['html'];
+			}
 			$mobi->setData($html);
 			$zipData = $mobi->download("Example.mobi");
 		} 

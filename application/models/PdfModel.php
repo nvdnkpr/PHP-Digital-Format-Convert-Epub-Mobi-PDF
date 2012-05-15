@@ -29,9 +29,13 @@
 		 */	
 		public function createPdf(TransformModel $transform, array $options) 
 		{
-			$html = $transform->getDocumentHTML($options['src']);
 			$pdf = $this->dfcTools['pdfConverter'];
-			$pdf->WriteHTML('<?xml encoding="UTF-8">' . $html);
+			if (!$options['customOptions']['html']) { //if no html has been passed, transform the Word Document
+				$html = '<?xml encoding="UTF-8">' . $transform->getDocumentHTML($options['src']);
+			} else {
+				$html = $options['customOptions']['html'];
+			}
+			$pdf->WriteHTML($html);
 			$pdf->Output();
 		} 
 		

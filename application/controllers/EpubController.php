@@ -28,7 +28,7 @@
 		 * createEpubAction
 		 * Set options, pass to instance of EpubModel()
 		 */	
-		public function createEpubAction() {
+		public function createEpubAction(array $customOptions = null) {
 			$options = array(
 				'options' => array (
 					'Title' => 'Conversion Demonstration',
@@ -38,6 +38,7 @@
 				),
 				'src' => 'application/example/manuscript.docx'
 			);
+			if ($customOptions) $options['customOptions'] = $customOptions;
 			$this->epubModel->createEpub($this->transform, $options);
 		}
 	}

@@ -28,7 +28,7 @@
 		 * createPdfAction
 		 * Set options, pass to instance of PdfModel()
 		 */	
-		public function createPdfAction() {
+		public function createPdfAction(array $customOptions = null) {
 			$options = array(
 				'options' => array (
 					'Title' => 'Conversion Demonstration',
@@ -37,6 +37,7 @@
 				),
 				'src' => 'application/example/manuscript.docx'
 			);
+			if ($customOptions) $options['customOptions'] = $customOptions;
 			$this->pdfModel->createPdf($this->transform, $options);
 		}
 	}

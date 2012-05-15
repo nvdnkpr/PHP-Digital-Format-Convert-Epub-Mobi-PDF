@@ -38,4 +38,4 @@ N.B. The demonstration manuscript is stored in /application/example
 
 ### TODO
 * Update documentation to reflect 9 May 2012 changes onwards
-* Detailed testing of HTML to *.* formats - PDF tested (basic elements only) 15 May 2012
+* Detailed testing of HTML to formats - PDF tested (basic elements only) 15 May 2012
